@@ -53,8 +53,6 @@ class Investment(models.Model):
 
 class Transactions(models.Model):
 
-    transaction_name = models.CharField(max_length = 50)
-
     transaction_id = models.CharField(db_index = True, max_length = 10,unique=True)
 
     user_id = models.ForeignKey(UserProfile,on_delete=models.CASCADE) 
@@ -63,11 +61,30 @@ class Transactions(models.Model):
 
     inr_spent = models.FloatField()
 
-    credit = models.IntegerField()
+    bitpoints_credit = models.IntegerField()
 
 
     def str(self):
         return self.transaction_name + str(self.bpoints) + str(self.credit)
+
+class BitsTransaction(models.Model):
+
+    transaction_name = models.CharField(max_length = 50)
+
+    transaction_id = models.CharField(db_index)
+
+    sender = models.ForeignKey(UserProfile,on_delete=models.CASCADE)
+
+    receiver = models.ForeignKey(UserProfile,on_delete=models.CASCADE)
+
+    bpoints = models.FloatField()
+
+    transaction_category = models.CharField(max_length = 50)
+
+    def str(self):
+        return self.sender.name + self.receiver.name + str(self.bpoints)
+    
+
 
 
 

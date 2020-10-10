@@ -6,7 +6,7 @@ function pr() {
     document.getElementById("chatLog").innerHTML += "<b>You </b>" + "<span>" + user + "</span>" +"<br>";
     
     var settings = {
-      "url": "https://bloomindia.herokuapp.com/chatbotapi/",
+      "url": "https://alphafintech.herokuapp.com/chatbotapi/",
       "method": "POST",
       "timeout": 0,
       "headers": {
