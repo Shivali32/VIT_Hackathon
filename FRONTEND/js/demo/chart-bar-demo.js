@@ -32,17 +32,19 @@ var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: ["5-Oct", "6-Oct", "7-Oct", "8-Oct", "9-Oct", "10-Oct"],
     datasets: [{
-      label: "Revenue",
-      backgroundColor: "#4e73df",
-      hoverBackgroundColor: "#2e59d9",
+      label: "Spending",
+      backgroundColor:  "#22ce84" ,
+      hoverBackgroundColor: "#22ad84",
       borderColor: "#4e73df",
-      data: [4215, 5312, 6251, 7841, 9821, 14984],
+      //data: [4215, 5312, 6251, 7841, 9821, 14984],
+      data: [44215, 35312, 56251, 47841, 39821, 14984],
     }],
   },
   options: {
     maintainAspectRatio: false,
+
     layout: {
       padding: {
         left: 10,
@@ -63,22 +65,22 @@ var myBarChart = new Chart(ctx, {
         ticks: {
           maxTicksLimit: 6
         },
-        maxBarThickness: 25,
+        maxBarThickness: 35,
       }],
       yAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
+          max: 60000,
           maxTicksLimit: 5,
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return '₹' + number_format(value);
           }
         },
         gridLines: {
-          color: "rgb(234, 236, 244)",
-          zeroLineColor: "rgb(234, 236, 244)",
+          color: "rgb(204, 206, 214)",
+          zeroLineColor: "rgb(204, 206, 214)",
           drawBorder: false,
           borderDash: [2],
           zeroLineBorderDash: [2]
@@ -103,9 +105,11 @@ var myBarChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + ': ₹' + number_format(tooltipItem.yLabel);
         }
       }
     },
   }
 });
+
+
