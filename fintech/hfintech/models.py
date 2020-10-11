@@ -71,11 +71,11 @@ class BitsTransaction(models.Model):
 
     transaction_name = models.CharField(max_length = 50)
 
-    transaction_id = models.CharField(db_index)
+    transaction_id = models.CharField(db_index=True, max_length = 10)
 
-    sender = models.ForeignKey(UserProfile,on_delete=models.CASCADE)
+    sender_id = models.CharField(max_length = 10)
 
-    receiver = models.ForeignKey(UserProfile,on_delete=models.CASCADE)
+    receiver_id = models.CharField(max_length = 10)
 
     bpoints = models.FloatField()
 

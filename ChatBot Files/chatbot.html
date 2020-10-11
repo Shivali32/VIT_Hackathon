@@ -1,17 +1,187 @@
-<!doctype html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+.chatbot {
+  border-radius: 10px;
+  text-align: left;
+  color: white;
+  display: inline-flex;
+  width: 100%;
+  padding: 10px;
+  background-color: #e55125;
+  margin: 0;
+}
+
+.button {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-radius: 50%;
+  color: #e55125;
+  width: 50px;
+  height: 35px;
+}
+
+.box {
+  background: #f4f7f9;
+  width: 100%;
+  position: relative;
+  height: 47px;
+  padding-top: 10px;
+  padding-right: 60px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  border: none;
+  resize: none;
+  outline: none;
+  border: 1px solid #ccc;
+  color: #888;
+  border-top: none;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow: hidden;
+}
+
+.top {
+  display: flex;
+  color: white;
+  width: 210px;
+  padding: 15px;
+  border-radius: 5px;
+  background: #e55125;
+  /* margin-left: 5px; */
+}
+
+span {
+  display: flex;
+  color: black;
+  width: 210px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.bot-message {
+  display: flex;
+  color: white;
+  width: 210px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #e55125;
+}
+
+.form {
+	 
+  background: #efefef;
+  position: fixed;
+  right: 30px;
+  bottom: 50px;
+  width: 350px;
+  max-width: 85vw;
+  max-height: 100vh;
+  border-radius: 5px;
+  box-shadow: 0px 5px 35px 9px #ccc;
+}
+
+.chat-box-body {
+  position: relative;
+  height: 450px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  padding: 15px;
+  overflow-y: scroll;
+}
+
+.chat-box-header {
+  font-weight: 500;
+  background: #e55125;
+  height: 70px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 17px;
+}
+
+
+.chat-box-openbutton {
+  font-weight: 500;
+  background: #e55125;
+  height: 70px;
+  width: 250px;
+	
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 17px;
+  position:fixed;
+  right:20px;
+  bottom:20px;
+}
+
+
+
+
+.chat-box-header:hover {
+  background-color: #d93504;
+}
+
+
+.chat-box-openbutton:hover {
+  background-color: #d93504;
+}
+
+
+
+.chat-box-opening {
+  font-weight: 500;
+  background: #e55125;
+  height: 70px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 17px;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e55125;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #e55125;
+}
+
+</style>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Bloom India Chatbot</title>
-    <link rel="stylesheet" href="chatbot.css">
-</head>
+   
 
-<body>
+
+
     <br>
     <div class="form" id = "chatwindow"  style = "display:none;">
         <div class="chat-box-header" onclick = "closeChatbot()">
@@ -35,14 +205,62 @@
         </div>
 		
 	
-            <script src="https://code.jquery.com/jquery-3.1.1.min.js" />
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-            </script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" /></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+            
+
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
                 crossorigin="anonymous"></script>
-            <script src="chatbot.js"></script>
 
-</body>
 
-</html>
+
+            <script>
+
+function pr() {
+    var data = document.getElementById('userBox').value;
+    var user = document.getElementById("userBox").value;
+    document.getElementById("userBox").value = "";
+    document.getElementById("chatLog").innerHTML += "<b>You </b>" + "<span>" + user + "</span>" +"<br>";
+	scrollToBottom();
+    
+    var settings = {
+      "url": "https://alphafintech.herokuapp.com/chatbotapi/",
+      "method": "POST",
+      "timeout": 0,
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      "data": {
+        "user_message": data
+      }
+    };
+    
+    $.ajax(settings).done(function (response) {
+      document.getElementById("chatLog").innerHTML += "<b>Chatbot </b>" + "<div class=\"bot-message\">" + response.bot_message + "<\/div>" + "<br>";
+	scrollToBottom();
+    });
+    }
+  
+
+
+function openChatbot() {
+  document.getElementById("chatbutton").style.display = "none";
+	document.getElementById("chatwindow").style.display = "block";
+}
+
+function closeChatbot() {
+	
+  	document.getElementById("chatwindow").style.display = "none";
+	document.getElementById("chatbutton").style.display = "block";
+} 
+
+function scrollToBottom() {
+  chatWindow = document.getElementById('chat-window');
+  var xH = chatWindow.scrollHeight;
+  chatWindow.scrollTo(0, xH);
+}
+</script>
+
+
+

@@ -21,6 +21,11 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('hfintech.urls')),
+    path('login/',include('hfintech.urls')),
+    re_path('register/',include('hfintech.urls')),
+    path('404/',include('hfintech.urls')),
+    path('dashboard/',include('hfintech.urls')),
+
 
     
 ]
