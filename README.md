@@ -26,22 +26,3 @@ Project Team Members:
     <p align="center">
         <img src="fintech/Output/ss4.png" width="650" >
     </p>
-
-<h2>Student Personal Analysis</h2>
-<p align="center">
-  <img src="Output/ss11.png" width="650" >
-  </p>
-  <p align="center">
-  <img src="Output/ss12.png" width="650" >
-  </p>
-
-
-<h2>Digital Report Card</h2>
-<p align="center">
-  <img src="Output/ss14.png" width="650" >
-  </p>
-
-<h2>Student Dashboard</h2>
-<p align="center">
-  <img src="Output/ss11 (1).png" width="650" >
-  </p>
