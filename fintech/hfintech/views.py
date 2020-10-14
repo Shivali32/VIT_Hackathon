@@ -42,7 +42,7 @@ def login(request):
                 return render(request,'index.html')
         else:
             return HttpResponse("Auth Failed !")
-    return render(request,'login_new.html')
+    return render(request,'login.html')
 
 def register(request):
 
